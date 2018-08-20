@@ -21,6 +21,7 @@
                 android:layout_height="170dp" />
 
             <EditText
+                android:id="@+id/login_user_id"
                 android:inputType="text"
                 android:hint="@string/user_id"
                 android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
                 android:layout_width="285dp" />
 
             <EditText
+                android:id="@+id/login_pass_id"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/ic_action_password"
@@ -44,19 +46,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
-                android:id="@+id/button3"
+                android:id="@+id/login_login_id"
                 android:layout_width="285dp" />
 
-            <TextView
-                android:text="Register New Account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="12dp"
-                android:id="@+id/textView"
-                />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:text="Register New Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:id="@+id/register_button"
+        style="@style/Widget.AppCompat.Button.Borderless" />
 
 </LinearLayout>

@@ -13,6 +13,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/register_user_id"
                 android:inputType="text"
                 android:hint="@string/user_id"
                 android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
                 android:layout_width="285dp" />
 
             <EditText
+                android:id="@+id/register_name"
                 android:inputType="text"
                 android:hint="@string/name"
                 android:drawableLeft="@drawable/ic_action_user_name"
@@ -32,6 +34,7 @@
                 android:layout_width="285dp" />
 
             <EditText
+                android:id="@+id/register_age"
                 android:inputType="number"
                 android:hint="@string/age"
                 android:drawableLeft="@drawable/ic_action_age"
@@ -42,6 +45,7 @@
                 android:layout_width="285dp" />
 
             <EditText
+                android:id="@+id/register_password"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/ic_action_password"
@@ -56,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
-                android:id="@+id/button3"
+                android:id="@+id/new_account"
                 android:layout_width="285dp" />
 
         </LinearLayout>

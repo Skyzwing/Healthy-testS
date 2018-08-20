@@ -13,6 +13,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/bmi_height"
                 android:inputType="number"
                 android:hint="@string/height"
                 android:drawableLeft="@drawable/ic_action_height"
@@ -23,6 +24,7 @@
                 android:layout_width="285dp" />
 
             <EditText
+                android:id="@+id/bmi_weight"
                 android:inputType="number"
                 android:hint="@string/Weight"
                 android:drawableLeft="@drawable/ic_action_weight"
@@ -33,11 +35,12 @@
                 android:layout_width="285dp" />
 
             <Button
+
                 android:text="CALCULATE"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
-                android:id="@+id/button3"
+                android:id="@+id/calculate"
                 android:layout_width="285dp" />
 
             <TextView
