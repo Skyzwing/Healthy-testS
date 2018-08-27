@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.KeyEventCompat;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,7 @@ import android.widget.Toast;
  * Created by LAB203_54 on 20/8/2561.
  */
 
-public class BMIFragment extends Fragment, KeyEventCompat{
+public class BMIFragment extends Fragment{
 
     @Nullable
     @Override
