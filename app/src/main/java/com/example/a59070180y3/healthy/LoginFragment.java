@@ -42,7 +42,7 @@ public class LoginFragment extends Fragment{
                     Log.d("USER", "GOTO BMI");
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.main_view, new BMIFragment())
+                            .replace(R.id.main_view, new MenuFragment())
                             .commit();
                 }else{
                     Log.d("USER", "INVALID USER OR PASSWORD");
