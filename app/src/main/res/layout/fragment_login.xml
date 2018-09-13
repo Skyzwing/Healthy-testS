@@ -18,7 +18,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
-                android:layout_height="170dp" />
+                android:layout_height="170dp"
+                android:contentDescription="TODO" />
 
             <EditText
                 android:id="@+id/login_user_id"

@@ -12,9 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by LAB203_54 on 20/8/2561.
@@ -53,13 +55,34 @@ public class RegisterFragment extends Fragment {
                 String _newPasswordUserStr = _newPasswordUser.getText().toString();
                 String _newRePasswordUserStr = _newRePasswordUser.getText().toString();
 
+                Button _regisNewAcc = (Button) getView().findViewById(R.id.new_account);
+
                 if(_newPasswordUserStr.equals(_newRePasswordUserStr)){
                     fbAuth.createUserWithEmailAndPassword(_newEmailStr, _newPasswordUserStr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
+                            sendVerifiedEmail(authResult.getUser());
+                            Toast.makeText(getActivity(), "Register complete.", Toast.LENGTH_SHORT).show();
                         }
-
-//                if(_newEmailStr.equals("admin")){
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), "Register false.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    _regisNewAcc.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.d("REGISTER", "Login page");
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.new_account, new LoginFragment());
+                        }
+                    });
+                }
+                else if (_newEmailStr.isEmpty() || _newPasswordUserStr.isEmpty() || _newRePasswordUserStr.isEmpty()){
+                    Toast.makeText(getActivity(), "Can't be blank.", Toast.LENGTH_SHORT).show();
+                    Log.d("REGISTER", "Can't be blank");
+                }
+                //                if(_newEmailStr.equals("admin")){
 //                    Toast.makeText(
 //                            getActivity(),
 //                            "Email นี้มีอยู่ในระบบแล้ว",
@@ -75,16 +98,20 @@ public class RegisterFragment extends Fragment {
 //                    ).show();
 //                    Log.d("REGISTER", "USER IS EMPTY");
 //                }
-                    });
-                    Button _regisNewAcc = (Button) getView().findViewById(R.id.new_account);
-                    _regisNewAcc.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Log.d("REGISTER", "GOTO BMI");
-                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.new_account, new BMIFragment());
-                        }
-                    });
-                }
+            }
+        });
+    }
+
+    private void sendVerifiedEmail(FirebaseUser _user){
+        _user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
             }
         });
     }
